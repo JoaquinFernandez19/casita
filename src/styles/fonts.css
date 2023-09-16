@@ -1,0 +1,16 @@
+@font-face {
+	font-family: 'RobotoCondensed';
+	font-style: normal;
+	font-weight: 500;
+	src: url('/fonts/RobotoCondensed-Regular.ttf'); /* IE9 Compat Modes */
+	src: local(''), url('/fonts/RobotoCondensed-Regular.ttf?#iefix') format('embedded-opentype'),
+		/* Modern Browsers */ url('/fonts/RobotoCondensed-Regular.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'RobotoCondensed';
+	font-style: bold;
+	font-weight: 600;
+	src: url('/fonts/RobotoCondensed-Bold.ttf'); /* IE9 Compat Modes */
+	src: local(''), url('/fonts/RobotoCondensed-Bold.ttf?#iefix') format('embedded-opentype'),
+		/* Modern Browsers */ url('/fonts/RobotoCondensed-Bold.ttf') format('truetype');
+}
