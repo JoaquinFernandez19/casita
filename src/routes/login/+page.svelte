@@ -1,9 +1,9 @@
-<script>
+<script lang="ts">
 	import Login from '../../components/Login.svelte';
-	let loggedIn = '';
+	import { session } from '../../store/store.ts';
 
 	const handleLogin = () => {
-		loggedIn = 'Joaquin';
+		session.update((session) => ({ ...session, loggedIn: true, user_name: 'Pedro' }));
 	};
 </script>
 

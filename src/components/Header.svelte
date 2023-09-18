@@ -1,12 +1,14 @@
 <script lang="ts">
 	import Logo from '../components/Logo.svelte';
-	export let loggedIn: string = '';
+	import { session } from '../store/store.ts';
+
+	const { logged_in, user_name } = $session;
 </script>
 
-<div class:loggedIn>
+<div class:logged_in>
 	<Logo />
-	{#if loggedIn}
-		<p>{loggedIn}</p>
+	{#if logged_in}
+		<p>{user_name}</p>
 	{/if}
 </div>
 
@@ -18,12 +20,12 @@
 		justify-content: center;
 		align-items: center;
 	}
-	.loggedIn {
+	.logged_in {
 		justify-content: space-between;
 		padding: 0 50px;
 	}
-	.loggedIn p {
+	.logged_in p {
 		color: var(--tertiary-color);
-		font-size: 25px;
+		font-size: 20px;
 	}
 </style>
