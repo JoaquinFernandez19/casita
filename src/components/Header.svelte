@@ -1,14 +1,29 @@
 <script lang="ts">
+	import { onDestroy } from 'svelte';
 	import Logo from '../components/Logo.svelte';
 	import { session } from '../store/store.ts';
+	import Logout from './LoginLogout/Logout.svelte';
 
-	const { logged_in, user_name } = $session;
+	let logged_in = false;
+	let user_name: string | undefined = '';
+
+	const unsubscribe = session.subscribe(
+		({ logged_in: loggedInValue, user_name: userNameValue }) => {
+			logged_in = loggedInValue;
+			user_name = userNameValue;
+		}
+	);
+
+	onDestroy(unsubscribe);
 </script>
 
-<div class:logged_in>
+<div class:logged_in class="container">
 	<Logo />
 	{#if logged_in}
-		<p>{user_name}</p>
+		<div>
+			<p>{user_name}</p>
+			<Logout />
+		</div>
 	{/if}
 </div>
 
@@ -22,7 +37,6 @@
 	}
 	.logged_in {
 		justify-content: space-between;
-		padding: 0 50px;
 	}
 	.logged_in p {
 		color: var(--tertiary-color);
