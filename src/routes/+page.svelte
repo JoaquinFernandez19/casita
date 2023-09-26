@@ -5,10 +5,10 @@
 <div class="main">
 	<Sections />
 
-	<div class="cats container">
+	<!-- <div class="cats container">
 		<img src="/jin.png" alt="" />
 		<img src="/simona.png" alt="" />
-	</div>
+	</div> -->
 </div>
 
 <style>

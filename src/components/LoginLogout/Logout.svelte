@@ -1,12 +1,10 @@
 <script>
 	import MdExitToApp from 'svelte-icons/md/MdExitToApp.svelte';
 
-	import { session } from '../../store/store.ts';
+	import { session } from '$lib/store/store.ts';
 
 	const handleLogout = () => {
-		session.set({
-			logged_in: false
-		});
+		session.set({});
 	};
 </script>
 
@@ -19,7 +17,7 @@
 		width: 20px;
 		height: 20px;
 		margin-left: 10px;
-		color: var(--tertiary-color);
+		color: var(--bg-color);
 		cursor: pointer;
 	}
 </style>

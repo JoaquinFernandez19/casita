@@ -43,15 +43,17 @@
 	.badge {
 		cursor: pointer;
 		border-radius: 20px;
-		border: 5px dotted black;
+		border: 5px dotted var(--contrast-color);
 		height: 100px;
 		position: relative;
 		display: flex;
 		justify-content: flex-start;
 		align-items: center;
+		transition: border 0.2s ease-in-out;
+
 		& > p {
 			z-index: 1;
-			color: var(--not-so-black);
+			color: var(--contrast-color);
 			font-weight: bolder;
 			padding-left: 30px;
 			font-size: 45px;
@@ -63,7 +65,7 @@
 		}
 
 		&:hover {
-			border: 5px dotted var(--primary-color);
+			border: 5px dotted transparent;
 			&::before {
 				opacity: 0.5;
 				transition: opacity 0.2s ease-in-out;
