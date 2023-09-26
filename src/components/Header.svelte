@@ -1,18 +1,15 @@
 <script lang="ts">
 	import { onDestroy } from 'svelte';
 	import Logo from '../components/Logo.svelte';
-	import { session } from '../store/store.ts';
+	import { session } from '$lib/store/store.ts';
 	import Logout from './LoginLogout/Logout.svelte';
 
-	let logged_in = false;
 	let user_name: string | undefined = '';
-
-	const unsubscribe = session.subscribe(
-		({ logged_in: loggedInValue, user_name: userNameValue }) => {
-			logged_in = loggedInValue;
-			user_name = userNameValue;
-		}
-	);
+	let logged_in = false;
+	const unsubscribe = session.subscribe(({ user_name: userNameValue }) => {
+		user_name = userNameValue;
+		logged_in = !!userNameValue;
+	});
 
 	onDestroy(unsubscribe);
 </script>
@@ -34,12 +31,14 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		border-bottom-left-radius: 20px;
+		border-bottom-right-radius: 20px;
 	}
 	.logged_in {
 		justify-content: space-between;
 	}
 	.logged_in p {
-		color: var(--tertiary-color);
+		color: var(--bg-color);
 		font-size: 20px;
 	}
 </style>
