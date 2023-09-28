@@ -8,14 +8,12 @@
 	};
 </script>
 
-<span on:click={handleLogout} role="button" on:keypress={handleLogout} tabindex="0">
+<span on:click={handleLogout} role="button" on:keypress={handleLogout} tabindex="0" class="icon">
 	<MdExitToApp />
 </span>
 
 <style>
 	span {
-		width: 20px;
-		height: 20px;
 		margin-left: 10px;
 		color: var(--bg-color);
 		cursor: pointer;

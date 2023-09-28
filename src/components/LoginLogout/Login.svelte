@@ -53,7 +53,6 @@
 	}
 	button {
 		background-color: var(--primary-color);
-		color: var(--bg-color);
 		padding: 10px 5px;
 		cursor: pointer;
 		border: none;
