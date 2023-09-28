@@ -38,8 +38,6 @@
 	div.container_inner {
 		row-gap: 20px;
 		flex-direction: column;
-		padding-left: 50px;
-		padding-right: 50px;
 	}
 	p {
 		margin-bottom: 10px;

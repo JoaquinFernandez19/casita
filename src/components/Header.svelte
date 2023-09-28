@@ -48,7 +48,11 @@
 		border-bottom-right-radius: 20px;
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr;
+		@media (max-width: 1000px) {
+			border-radius: 0;
+		}
 	}
+
 	.logo {
 		grid-column: 2/3;
 		justify-self: center;

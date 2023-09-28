@@ -48,6 +48,7 @@
 		margin: 0 auto;
 		height: 100vh;
 	}
+
 	.dark {
 		--primary-color: #678a6d;
 		--secondary-color: #94a684;
