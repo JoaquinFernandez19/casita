@@ -2,11 +2,12 @@
 	import Header from '../components/Header.svelte';
 	import Login from '../components/LoginLogout/Login.svelte';
 	import '../styles/fonts.css';
-	import { session, theme } from '$lib/store/store.ts';
+	import { session } from '$lib/store/session_store';
+	import { theme } from '$lib/store/theme_store';
 </script>
 
 <svelte:head>
-	<title>Casita</title>
+	<title>Casitapp</title>
 </svelte:head>
 
 <div class={$theme}>

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { session } from '$lib/store/store.ts';
+	import { session } from '$lib/store/session_store';
 	import { validateUserLogin } from '$lib';
 	let pwInput = '';
 

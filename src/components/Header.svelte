@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onDestroy } from 'svelte';
 	import Logo from '../components/Logo.svelte';
-	import { session } from '$lib/store/store.ts';
+	import { session } from '$lib/store/session_store';
 	import Logout from './LoginLogout/Logout.svelte';
 	import Theme from './Theme.svelte';
 

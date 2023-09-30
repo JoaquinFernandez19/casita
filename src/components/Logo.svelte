@@ -1,4 +1,4 @@
-<h1>Casita 🏠</h1>
+<h1>Casitapp 🏠</h1>
 
 <style>
 	h1 {

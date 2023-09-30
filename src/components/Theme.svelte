@@ -1,10 +1,10 @@
 <script>
-	import { theme } from '$lib/store/store.ts';
+	import { Themes, theme } from '$lib/store/theme_store';
 	import FaRegMoon from 'svelte-icons/fa/FaRegMoon.svelte';
 	import FaRegSun from 'svelte-icons/fa/FaRegSun.svelte';
 
 	const handleThemeChange = () => {
-		theme.set($theme === 'light' ? 'dark' : 'light');
+		theme.toggle();
 	};
 </script>
 
@@ -16,9 +16,10 @@
 		tabindex="0"
 		class="icon"
 	>
-		{#if $theme === 'light'}
+		{#if $theme === Themes.light}
 			<FaRegMoon />
-		{:else}
+		{/if}
+		{#if $theme === Themes.Dark}
 			<FaRegSun />
 		{/if}
 	</span>

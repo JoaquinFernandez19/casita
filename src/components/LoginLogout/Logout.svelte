@@ -1,7 +1,7 @@
 <script>
 	import MdExitToApp from 'svelte-icons/md/MdExitToApp.svelte';
 
-	import { session } from '$lib/store/store.ts';
+	import { session } from '$lib/store/session_store';
 
 	const handleLogout = () => {
 		session.set({});
