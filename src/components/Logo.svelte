@@ -3,7 +3,7 @@
 <style>
 	h1 {
 		font-size: 40px;
-		color: var(--bg-color);
+		color: var(--font-color);
 		text-align: center;
 
 		@media (max-width: 1000px) {

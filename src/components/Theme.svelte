@@ -27,7 +27,7 @@
 
 <style>
 	span {
-		color: var(--bg-color);
+		color: var(--contrast-color);
 		cursor: pointer;
 	}
 </style>
