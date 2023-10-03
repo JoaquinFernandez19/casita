@@ -1,12 +1,9 @@
-import { users } from './localdb';
-import type { User } from './types/user';
+import type { User } from '$lib/types/user';
+import { users } from './localdb.server';
 
 function validateUserLogin(password: string): User | false {
 	const verifiedUser = users.find((user) => password === user.password);
 
-	return {
-		name: 'Joaquin'
-	};
 	return verifiedUser ? { name: verifiedUser.name } : false;
 }
 

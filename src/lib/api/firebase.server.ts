@@ -1,10 +1,10 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
-import {env } from 
+import { FIREBASE_KEY } from '$env/static/private';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-	apiKey: 'AIzaSyCUEh9a1lunRsRuxB-_j8xQbt1uRcUykp8',
+	apiKey: FIREBASE_KEY,
 	authDomain: 'casita-supplies.firebaseapp.com',
 	projectId: 'casita-supplies',
 	storageBucket: 'casita-supplies.appspot.com',
@@ -13,4 +13,4 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);

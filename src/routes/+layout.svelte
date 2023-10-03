@@ -30,6 +30,7 @@
 	}
 	:global(.container) {
 		padding: 0 50px;
+		position: relative;
 		@media (max-width: 748px) {
 			padding: 0 20px;
 		}
