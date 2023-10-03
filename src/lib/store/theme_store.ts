@@ -15,6 +15,7 @@ function themeManagement() {
 	}
 	function getThemeFromLocalStorage() {
 		if (typeof window == 'undefined') return null;
+		if (!localStorage.getItem('theme')) return Themes.Dark;
 		const themeFromLocalStorage = localStorage.getItem('theme') as Themes.Dark | Themes.light;
 		return themeFromLocalStorage;
 	}

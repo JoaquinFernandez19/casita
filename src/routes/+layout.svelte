@@ -10,7 +10,7 @@
 	<title>Casitapp</title>
 </svelte:head>
 
-<div class={$theme}>
+<div class={`${$theme} base`}>
 	<div class="app">
 		<Header />
 		{#if $session.user_name}
@@ -30,6 +30,7 @@
 	}
 	:global(.container) {
 		padding: 0 50px;
+		position: relative;
 		@media (max-width: 748px) {
 			padding: 0 20px;
 		}
@@ -49,6 +50,9 @@
 		margin: 0 auto;
 		height: 100vh;
 	}
+	.base {
+		--bg-color: rgb(99, 99, 99);
+	}
 
 	.dark {
 		--primary-color: #678a6d;
@@ -61,12 +65,11 @@
 		--primary-color: #94a684;
 		--secondary-color: #aec3ae;
 		--contrast-color: rgb(37, 37, 37);
-		--bg-color: #ffffff;
+		--bg-color: #fff5c680;
 		--font-color: white;
 	}
 
-	.dark,
-	.light {
+	.base {
 		background-color: var(--bg-color);
 		transition: background-color 0.2s ease-in;
 	}

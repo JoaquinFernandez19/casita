@@ -38,7 +38,7 @@
 		align-items: center;
 	}
 	p {
-		color: var(--bg-color);
+		color: var(--font-color);
 		font-size: 20px;
 	}
 	.header {

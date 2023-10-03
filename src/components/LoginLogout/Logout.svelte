@@ -15,7 +15,7 @@
 <style>
 	span {
 		margin-left: 10px;
-		color: var(--bg-color);
+		color: var(--font-color);
 		cursor: pointer;
 	}
 </style>
