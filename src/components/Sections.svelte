@@ -16,7 +16,7 @@
 			title: 'Viajes',
 			content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
 			img: '/travel.png',
-			path: '/sections/avionsitogofium'
+			path: '/sections/travel'
 		},
 		{
 			title: 'Salud & Gimnasio',

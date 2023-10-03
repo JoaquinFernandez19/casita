@@ -27,6 +27,7 @@
 		padding: 0;
 		margin: 0;
 		font-family: 'RobotoCondensed';
+		color: var(--font-color);
 	}
 	:global(.container) {
 		padding: 0 50px;
@@ -49,6 +50,7 @@
 		max-width: 1000px;
 		margin: 0 auto;
 		height: 100vh;
+		position: relative;
 	}
 	.base {
 		--bg-color: rgb(99, 99, 99);
