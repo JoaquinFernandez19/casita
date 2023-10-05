@@ -13,11 +13,11 @@
 <div class={`${$theme} base`}>
 	<div class="app">
 		<Header />
-		{#if $session.user_name}
+		<!-- {#if $session.user_name}-->
 			<slot />
-		{:else}
-			<Login />
-		{/if}
+		<!-- {:else}  -->
+			<!-- <Login /> -->
+		<!-- {/if} -->
 	</div>
 </div>
 

@@ -4,23 +4,21 @@
 	let pwInput = '';
 	let loginErrror = false;
 	const handleLogin = async () => {
-		// loginErrror = false;
-		// const response = await fetch('/validate_login', {
-		// 	method: 'POST',
-		// 	body: JSON.stringify({ password: pwInput }),
-		// 	headers: {
-		// 		'Content-Type': 'application/json'
-		// 	}
-		// });
+		loginErrror = false;
+		const response = await fetch('/validate_login', {
+			method: 'POST',
+			body: JSON.stringify({ password: pwInput }),
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		});
 
-		// const responseJson = await response.json();
-		// if (responseJson.error) return (loginErrror = true);
+		const responseJson = await response.json();
+		if (responseJson.error) return (loginErrror = true);
 		session.set({
-			// user_name: responseJson.userName
+			user_name: responseJson.userName
 		});
-		session.set({
-			user_name: 'Paz'
-		});
+		
 	};
 
 	$: if (loginErrror) {
