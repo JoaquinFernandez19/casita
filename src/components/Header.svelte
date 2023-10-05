@@ -43,13 +43,14 @@
 	}
 	.header {
 		background-color: var(--primary-color);
-		height: 100px;
-		border-bottom-left-radius: 20px;
-		border-bottom-right-radius: 20px;
+		height: 80px;
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 10px;
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr;
 		@media (max-width: 1000px) {
 			border-radius: 0;
+			height: 80px;
 		}
 	}
 

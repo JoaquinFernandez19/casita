@@ -7,16 +7,16 @@
 </script>
 
 <svelte:head>
-	<title>Casitapp</title>
+	<title>Casita Lemon</title>
 </svelte:head>
 
 <div class={`${$theme} base`}>
 	<div class="app">
 		<Header />
 		<!-- {#if $session.user_name}-->
-			<slot />
+		<slot />
 		<!-- {:else}  -->
-			<!-- <Login /> -->
+		<!-- <Login /> -->
 		<!-- {/if} -->
 	</div>
 </div>

@@ -47,9 +47,8 @@
 	}
 	.badge {
 		cursor: pointer;
-		border-radius: 20px;
-		border: 2px solid var(--contrast-color);
-		height: 100px;
+		border-radius: 10px;
+		height: 150px;
 		position: relative;
 		display: flex;
 		justify-content: center;
@@ -60,16 +59,15 @@
 			color: var(--contrast-color);
 			font-weight: bolder;
 			padding-left: 30px;
-			font-size: 45px;
-
+			font-size: 40px;
+			text-align: center;
 			@media (max-width: 748px) {
 				font-weight: bold;
-				font-size: 35px;
+				font-size: 30px;
 			}
 		}
 
 		&:hover {
-			border: 2px solid transparent;
 			&::before {
 				opacity: 0.7;
 				transition: opacity 0.2s ease-in-out;
