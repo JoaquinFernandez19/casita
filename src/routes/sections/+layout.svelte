@@ -1,11 +1,11 @@
 <script>
-	import MdChevronLeft from 'svelte-icons/md/MdChevronLeft.svelte';
+	import MdiChevronLeft from '~icons/mdi/chevron-left';
 </script>
 
 <div class="container section_layout">
 	<a href="/">
-		<span class="icon"><MdChevronLeft /></span>
-		Atrás
+		<span class="icon"><MdiChevronLeft /></span>
+		<p>Atrás</p>
 	</a>
 </div>
 
@@ -17,7 +17,11 @@
 	.section_layout {
 		margin-top: 40px;
 		position: absolute;
-		right: 0;
+		left: 0;
+
+		@media (max-width: 1000px) {
+			margin-top: 35px;
+		}
 	}
 	.slot {
 		margin-top: 30px;
@@ -33,5 +37,14 @@
 		position: relative;
 		align-items: center;
 		z-index: 20;
+	}
+	.icon {
+		font-size: 17px;
+		line-height: 10px;
+	}
+	p {
+		@media (max-width: 1000px) {
+			display: none;
+		}
 	}
 </style>

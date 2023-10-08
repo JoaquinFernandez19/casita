@@ -13,11 +13,11 @@
 <div class={`${$theme} base`}>
 	<div class="app">
 		<Header />
-		<!-- {#if $session.user_name}-->
-		<slot />
-		<!-- {:else}  -->
-		<!-- <Login /> -->
-		<!-- {/if} -->
+		{#if $session.user_name}
+			<slot />
+		{:else}
+			<Login />
+		{/if}
 	</div>
 </div>
 
@@ -28,6 +28,10 @@
 		margin: 0;
 		font-family: 'RobotoCondensed';
 		color: var(--font-color);
+	}
+
+	:global(body, html) {
+		height: 100%;
 	}
 	:global(.container) {
 		padding: 0 50px;
@@ -41,19 +45,50 @@
 		border-radius: 10px;
 		padding: 20px;
 	}
-	:global(.icon) {
-		width: 20px;
-		height: 20px;
-		display: block;
+	:global(button) {
+		background: none;
+		border: none;
+		cursor: pointer;
 	}
+
+	:global(.icon_lg, .icon_md) {
+		color: var(--font-color);
+	}
+
+	:global(.icon_md) {
+		font-size: 30px;
+		line-height: 10px;
+		@media (max-width: 1000px) {
+			font-size: 25px;
+			line-height: 10px;
+		}
+	}
+	:global(.icon_lg) {
+		font-size: 60px;
+		line-height: 20px;
+		@media (max-width: 1000px) {
+			font-size: 30px;
+			line-height: 10px;
+		}
+	}
+	:global(input) {
+		outline: none;
+		padding: 5px 10px;
+		color: #171717;
+		font-size: 20px;
+	}
+
 	.app {
 		max-width: 1000px;
 		margin: 0 auto;
-		height: 100vh;
+		height: 100%;
 		position: relative;
 	}
 	.base {
 		--bg-color: rgb(99, 99, 99);
+		height: 100%;
+		width: 100%;
+		position: relative;
 	}
 
 	.dark {
@@ -61,6 +96,7 @@
 		--secondary-color: #94a684;
 		--contrast-color: #ffffff;
 		--bg-color: #333333;
+		--bg-color-stronger: #171717;
 		--font-color: #ffffff;
 	}
 	.light {
@@ -68,7 +104,8 @@
 		--secondary-color: #aec3ae;
 		--contrast-color: rgb(37, 37, 37);
 		--bg-color: #fff5c680;
-		--font-color: white;
+		--bg-color-stronger: rgb(247 245 228);
+		--font-color: #333333;
 	}
 
 	.base {

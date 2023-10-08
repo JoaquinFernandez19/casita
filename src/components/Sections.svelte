@@ -13,7 +13,7 @@
 			img: '/movie.png'
 		},
 		{
-			title: 'Viajes',
+			title: 'Viajes & Ahorros',
 			content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
 			img: '/travel.png',
 			path: '/sections/travel'
@@ -56,7 +56,7 @@
 		transition: border 0.1s ease-in-out;
 		& > p {
 			z-index: 1;
-			color: var(--contrast-color);
+			color: var(--font-color);
 			font-weight: bolder;
 			padding-left: 30px;
 			font-size: 40px;

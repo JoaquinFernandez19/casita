@@ -16,9 +16,9 @@
 </script>
 
 <div class:logged_in class="container header">
-	<div class="user">
+	<div>
 		{#if logged_in}
-			<div>
+			<div class="user">
 				<p>{user_name}</p>
 				<Logout />
 			</div>
@@ -40,6 +40,11 @@
 	p {
 		color: var(--font-color);
 		font-size: 20px;
+	}
+	.user {
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 	.header {
 		background-color: var(--primary-color);

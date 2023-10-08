@@ -1,8 +1,7 @@
 <script>
 	import { Themes, theme } from '$lib/store/theme_store';
-	import FaRegMoon from 'svelte-icons/fa/FaRegMoon.svelte';
-	import FaRegSun from 'svelte-icons/fa/FaRegSun.svelte';
-
+	import MdiWeatherSunset from '~icons/mdi/weather-sunset';
+	import MdiWeatherNight from '~icons/mdi/weather-night';
 	const handleThemeChange = () => {
 		theme.toggle();
 	};
@@ -17,17 +16,20 @@
 		class="icon"
 	>
 		{#if $theme === Themes.light}
-			<FaRegMoon />
+			<MdiWeatherNight />
 		{/if}
 		{#if $theme === Themes.Dark}
-			<FaRegSun />
+			<MdiWeatherSunset />
 		{/if}
 	</span>
 </div>
 
 <style>
 	span {
-		color: var(--contrast-color);
 		cursor: pointer;
+	}
+	.icon {
+		color: var(--contrast-color);
+		font-size: 20px;
 	}
 </style>
