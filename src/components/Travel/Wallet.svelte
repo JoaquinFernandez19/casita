@@ -44,7 +44,7 @@
 
 <div class="main">
 	<div class="icon_lg cash"><MdCash /></div>
-	<div class="total">{formatMoney($wallet)}</div>
+	<div class="total">{$wallet === 0 ? 'Cargando...' : formatMoney($wallet)}</div>
 	<div class="actions">
 		<button on:click={toggleModal} class="icon_md">
 			<MdPlusBox />

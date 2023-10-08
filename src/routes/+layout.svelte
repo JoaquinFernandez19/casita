@@ -30,9 +30,6 @@
 		color: var(--font-color);
 	}
 
-	:global(body, html) {
-		height: 100%;
-	}
 	:global(.container) {
 		padding: 0 50px;
 		position: relative;
@@ -86,7 +83,7 @@
 	}
 	.base {
 		--bg-color: rgb(99, 99, 99);
-		height: 100%;
+		min-height: 100vh;
 		width: 100%;
 		position: relative;
 	}
