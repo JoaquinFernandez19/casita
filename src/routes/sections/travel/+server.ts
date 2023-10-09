@@ -1,30 +1,37 @@
-import { supabase } from '$lib/api/supabase-client';
 import { formatISO } from 'date-fns';
-import { WalletGetRequestTypes } from '$lib/types/requests.ts';
+import { WalletGetRequestTypes, type ISupabase } from '$lib/types/requests.ts';
 
 const WALLET_ID = 1;
 
-export async function GET({ url }) {
+export async function GET({ url, locals: { supabase } }) {
 	const type = url.searchParams.get('type');
 
 	let data;
 
-	if (type === WalletGetRequestTypes.Total) data = await getTravelWalletTotal();
+	if (type === WalletGetRequestTypes.Total) data = await getTravelWalletTotal(supabase);
 
-	if (type === WalletGetRequestTypes.History) data = await getTravelWalletHistory();
+	if (type === WalletGetRequestTypes.History) data = await getTravelWalletHistory(supabase);
 
 	return new Response(JSON.stringify(data), { status: 200 });
 }
 
-const getTravelWalletTotal = async () => {
+const getTravelWalletTotal = async (supabase: ISupabase) => {
 	return await supabase.from('TravelWallet').select().eq('id', WALLET_ID);
 };
 
-const getTravelWalletHistory = async () => {
-	return await supabase.from('TravelWalletModification').select().eq('travelWallet', WALLET_ID);
+const getTravelWalletHistory = async (supabase: ISupabase) => {
+	return await supabase
+		.from('TravelWalletModification')
+		.select(
+			`
+		*,
+		user("*")
+	`
+		)
+		.eq('travelWallet', WALLET_ID);
 };
 
-export async function POST({ request }) {
+export async function POST({ request, locals: { supabase } }) {
 	const { amount, prevAmount, user, date } = await request.json();
 	await supabase
 		.from('TravelWallet')

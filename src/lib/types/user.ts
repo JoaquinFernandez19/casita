@@ -1,5 +1,4 @@
-interface User {
-	name: string;
-}
-
-export type { User };
+export type UserData = {
+	name: string | null;
+	id: number;
+};

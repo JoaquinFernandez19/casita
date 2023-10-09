@@ -1,25 +1,16 @@
 <script lang="ts">
-	import { onDestroy } from 'svelte';
 	import Logo from '../components/Logo.svelte';
-	import { session } from '$lib/store/session_store';
 	import Logout from './LoginLogout/Logout.svelte';
 	import Theme from './Theme.svelte';
 
-	let user_name: string | undefined = '';
-	let logged_in = false;
-	const unsubscribe = session.subscribe(({ user_name: userNameValue }) => {
-		user_name = userNameValue;
-		logged_in = !!userNameValue;
-	});
-
-	onDestroy(unsubscribe);
+	import { clientSession } from '$lib/store/session_store';
 </script>
 
-<div class:logged_in class="container header">
+<div class="container header">
 	<div>
-		{#if logged_in}
+		{#if $clientSession}
 			<div class="user">
-				<p>{user_name}</p>
+				<p>{$clientSession.name}</p>
 				<Logout />
 			</div>
 		{/if}

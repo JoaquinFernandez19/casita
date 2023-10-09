@@ -14,9 +14,8 @@ function historyManagement() {
 
 		if (response && response.status === 200) {
 			const { data } = await response.json();
-
 			if (data.length)
-				set(data.map((registerDB: HistoryRegisterDB) => walletRegisterDTO(registerDB)));
+				set(data.map((registerDB: HistoryRegisterDB) => walletRegisterDTO(registerDB)).reverse());
 		}
 	})();
 

@@ -8,7 +8,7 @@
 	import Modal from '../Modal.svelte';
 
 	import { history, wallet } from '$lib/store/travel_store';
-	import { session } from '../../lib/store/session_store';
+	import { clientSession } from '$lib/store/session_store';
 
 	import { formatMoney } from '../../lib/helpers/formatter';
 
@@ -32,14 +32,13 @@
 				amount: Number(input),
 				date: format(new Date(), 'dd/MM/yyyy'),
 				prevAmount: $wallet,
-				user: $session.user_name || 'Hackerman'
+				userName: $clientSession?.name || 'Hacerman',
+				user: $clientSession?.id || 1
 			});
 			wallet.update(Number(input));
 		}
 		toggleModal();
 	};
-
-	$: console.log($history);
 </script>
 
 <div class="main">
@@ -54,9 +53,9 @@
 		<button class="icon_md" on:click={toggleHistory}> <MdList /></button>
 		{#if historyOpen}
 			<div class="register" transition:slide>
-				{#each $history as { date, amount, user, prevAmount }, i}
+				{#each $history as { date, amount, userName }}
 					<div>
-						<p>{user}</p>
+						<p>{userName}</p>
 						<div>
 							<p>{amount > 0 ? '+' + formatMoney(amount) : '-' + formatMoney(amount)}</p>
 						</div>

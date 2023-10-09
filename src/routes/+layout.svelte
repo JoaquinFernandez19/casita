@@ -1,9 +1,29 @@
-<script>
+<script lang="ts">
+	import { clientSession } from './../lib/store/session_store.ts';
 	import Header from '../components/Header.svelte';
 	import Login from '../components/LoginLogout/Login.svelte';
 	import '../styles/fonts.css';
-	import { session } from '$lib/store/session_store';
+	import '../styles/global.postcss';
 	import { theme } from '$lib/store/theme_store';
+
+	import { onMount } from 'svelte';
+	import { invalidateAll } from '$app/navigation';
+
+	export let data;
+
+	let { supabase, session, userData } = data;
+	$: ({ supabase, session } = data);
+
+	$: clientSession.set(userData);
+
+	onMount(() => {
+		const {
+			data: { subscription }
+		} = supabase.auth.onAuthStateChange(() => {
+			invalidateAll();
+		});
+		return () => subscription.unsubscribe();
+	});
 </script>
 
 <svelte:head>
@@ -13,7 +33,7 @@
 <div class={`${$theme} base`}>
 	<div class="app">
 		<Header />
-		{#if $session.user_name}
+		{#if session}
 			<slot />
 		{:else}
 			<Login />
@@ -22,59 +42,6 @@
 </div>
 
 <style>
-	:global(*) {
-		box-sizing: border-box;
-		padding: 0;
-		margin: 0;
-		font-family: 'RobotoCondensed';
-		color: var(--font-color);
-	}
-
-	:global(.container) {
-		padding: 0 50px;
-		position: relative;
-		@media (max-width: 748px) {
-			padding: 0 20px;
-		}
-	}
-	:global(.card) {
-		background-color: var(--secondary-color);
-		border-radius: 10px;
-		padding: 20px;
-	}
-	:global(button) {
-		background: none;
-		border: none;
-		cursor: pointer;
-	}
-
-	:global(.icon_lg, .icon_md) {
-		color: var(--font-color);
-	}
-
-	:global(.icon_md) {
-		font-size: 30px;
-		line-height: 10px;
-		@media (max-width: 1000px) {
-			font-size: 25px;
-			line-height: 10px;
-		}
-	}
-	:global(.icon_lg) {
-		font-size: 60px;
-		line-height: 20px;
-		@media (max-width: 1000px) {
-			font-size: 30px;
-			line-height: 10px;
-		}
-	}
-	:global(input) {
-		outline: none;
-		padding: 5px 10px;
-		color: #171717;
-		font-size: 20px;
-	}
-
 	.app {
 		max-width: 1000px;
 		margin: 0 auto;
@@ -86,6 +53,8 @@
 		min-height: 100vh;
 		width: 100%;
 		position: relative;
+		background-color: var(--bg-color);
+		transition: background-color 0.2s ease-in;
 	}
 
 	.dark {
@@ -103,10 +72,5 @@
 		--bg-color: #fff5c680;
 		--bg-color-stronger: rgb(247 245 228);
 		--font-color: #333333;
-	}
-
-	.base {
-		background-color: var(--bg-color);
-		transition: background-color 0.2s ease-in;
 	}
 </style>

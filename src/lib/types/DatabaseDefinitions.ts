@@ -1,0 +1,90 @@
+export type Json = string | number | boolean | null | { [key: string]: Json | undefined } | Json[];
+
+export interface Database {
+	public: {
+		Tables: {
+			TravelWallet: {
+				Row: {
+					amount: number | null;
+					id: number;
+				};
+				Insert: {
+					amount?: number | null;
+					id?: number;
+				};
+				Update: {
+					amount?: number | null;
+					id?: number;
+				};
+				Relationships: [];
+			};
+			TravelWalletModification: {
+				Row: {
+					amount: number | null;
+					created_at: string;
+					id: number;
+					prevAmount: number | null;
+					travelWallet: number | null;
+					user: string | null;
+				};
+				Insert: {
+					amount?: number | null;
+					created_at?: string;
+					id?: number;
+					prevAmount?: number | null;
+					travelWallet?: number | null;
+					user?: string | null;
+				};
+				Update: {
+					amount?: number | null;
+					created_at?: string;
+					id?: number;
+					prevAmount?: number | null;
+					travelWallet?: number | null;
+					user?: string | null;
+				};
+				Relationships: [
+					{
+						foreignKeyName: 'TravelWalletModification_travelWallet_fkey';
+						columns: ['travelWallet'];
+						referencedRelation: 'TravelWallet';
+						referencedColumns: ['id'];
+					}
+				];
+			};
+			Users: {
+				Row: {
+					created_at: string;
+					email: string | null;
+					id: number;
+					name: string | null;
+				};
+				Insert: {
+					created_at?: string;
+					email?: string | null;
+					id?: number;
+					name?: string | null;
+				};
+				Update: {
+					created_at?: string;
+					email?: string | null;
+					id?: number;
+					name?: string | null;
+				};
+				Relationships: [];
+			};
+		};
+		Views: {
+			[_ in never]: never;
+		};
+		Functions: {
+			[_ in never]: never;
+		};
+		Enums: {
+			[_ in never]: never;
+		};
+		CompositeTypes: {
+			[_ in never]: never;
+		};
+	};
+}
