@@ -25,7 +25,7 @@ export interface Database {
 					id: number;
 					prevAmount: number | null;
 					travelWallet: number | null;
-					user: string | null;
+					user: number | null;
 				};
 				Insert: {
 					amount?: number | null;
@@ -33,7 +33,7 @@ export interface Database {
 					id?: number;
 					prevAmount?: number | null;
 					travelWallet?: number | null;
-					user?: string | null;
+					user?: number | null;
 				};
 				Update: {
 					amount?: number | null;
@@ -41,13 +41,19 @@ export interface Database {
 					id?: number;
 					prevAmount?: number | null;
 					travelWallet?: number | null;
-					user?: string | null;
+					user?: number | null;
 				};
 				Relationships: [
 					{
 						foreignKeyName: 'TravelWalletModification_travelWallet_fkey';
 						columns: ['travelWallet'];
 						referencedRelation: 'TravelWallet';
+						referencedColumns: ['id'];
+					},
+					{
+						foreignKeyName: 'TravelWalletModification_user_fkey';
+						columns: ['user'];
+						referencedRelation: 'Users';
 						referencedColumns: ['id'];
 					}
 				];

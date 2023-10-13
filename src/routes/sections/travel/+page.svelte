@@ -1,11 +1,20 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
 	import Wallet from '../../../components/Travel/Wallet.svelte';
+	import type { HistoryRegister } from '$lib/types/wallet_history.js';
+
+	export let data;
+
+	let walletHistory: HistoryRegister[];
+	let walletTotal: number;
+
+	$: walletHistory = data.walletHistory || [];
+	$: walletTotal = data.walletTotal;
 </script>
 
 <div in:fade>
 	<h1>Viajes & Ahorros</h1>
-	<Wallet />
+	<Wallet {walletHistory} {walletTotal} />
 </div>
 
 <style>

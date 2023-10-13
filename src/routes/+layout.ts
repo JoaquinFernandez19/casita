@@ -3,8 +3,9 @@ import { PUBLIC_SUPABASE_KEY, PUBLIC_SUPABASE_URL } from '$env/static/public';
 import { createSupabaseLoadClient } from '@supabase/auth-helpers-sveltekit';
 import type { Database } from '../lib/types/DatabaseDefinitions';
 import { getUserInfoWithEmail } from '$lib/api/user.js';
+import { redirect } from '@sveltejs/kit';
 
-export const load = async ({ fetch, data, depends }) => {
+export const load = async ({ fetch, data, route, depends }) => {
 	depends('supabase:auth');
 
 	const supabase = createSupabaseLoadClient<Database>({

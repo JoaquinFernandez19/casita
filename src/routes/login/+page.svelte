@@ -1,11 +1,16 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
+	export let form;
 
-	// $: if (loginErrror) {
-	// 	setTimeout(function () {
-	// 		loginErrror = false;
-	// 	}, 3000);
-	// }
+	let loginError: boolean;
+
+	$: loginError = !!form;
+
+	$: if (loginError) {
+		setTimeout(function () {
+			loginError = false;
+		}, 3000);
+	}
 </script>
 
 <div class="container">
@@ -21,9 +26,9 @@
 			</div>
 			<button> Ingresar </button>
 		</form>
-		<!-- {#if loginErrror}
+		{#if loginError}
 			<div class="login_error" transition:fade>Contraseña incorrecta :(</div>
-		{/if} -->
+		{/if}
 	</div>
 </div>
 
@@ -65,7 +70,7 @@
 		padding: 10px 5px;
 		color: black;
 	}
-	/* .login_error {
+	.login_error {
 		background: rgb(255, 96, 96);
 		border-radius: 10px;
 		padding: 10px 20px;
@@ -75,7 +80,7 @@
 		left: 0;
 		text-align: center;
 		justify-content: center;
-	} */
+	}
 	button {
 		background-color: var(--primary-color);
 		padding: 10px 5px;

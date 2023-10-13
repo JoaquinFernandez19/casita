@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { clientSession } from './../lib/store/session_store.ts';
 	import Header from '../components/Header.svelte';
-	import Login from '../components/LoginLogout/Login.svelte';
 	import '../styles/fonts.css';
 	import '../styles/global.postcss';
 	import { theme } from '$lib/store/theme_store';
@@ -13,7 +12,6 @@
 
 	let { supabase, session, userData } = data;
 	$: ({ supabase, session } = data);
-
 	$: clientSession.set(userData);
 
 	onMount(() => {
@@ -33,11 +31,7 @@
 <div class={`${$theme} base`}>
 	<div class="app">
 		<Header />
-		{#if session}
-			<slot />
-		{:else}
-			<Login />
-		{/if}
+		<slot />
 	</div>
 </div>
 

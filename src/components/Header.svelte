@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Logo from '../components/Logo.svelte';
-	import Logout from './LoginLogout/Logout.svelte';
+	import Logout from './Logout.svelte';
 	import Theme from './Theme.svelte';
 
 	import { clientSession } from '$lib/store/session_store';
