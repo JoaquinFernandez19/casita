@@ -10,7 +10,8 @@
 		{
 			title: 'Peliculas & Series',
 			content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
-			img: '/movie.png'
+			img: '/movie.png',
+			path: '/sections/movies'
 		},
 		{
 			title: 'Viajes & Ahorros',
