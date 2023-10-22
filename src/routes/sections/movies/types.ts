@@ -1,7 +1,7 @@
 interface IMovie {
 	name: string;
 	image: string;
-	status: string;
+	status: 'Vista' | 'Pendiente' | 'Cancelada';
 	rating: number;
 	provider: string;
 }
