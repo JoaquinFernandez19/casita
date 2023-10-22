@@ -64,7 +64,7 @@
 		--secondary-color: #aec3ae;
 		--contrast-color: rgb(37, 37, 37);
 		--bg-color: #fff5c680;
-		--bg-color-stronger: rgb(247 245 228);
+		--bg-color-stronger: #94a68472;
 		--font-color: #333333;
 	}
 </style>
