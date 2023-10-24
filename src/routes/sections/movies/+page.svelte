@@ -1,12 +1,22 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
 	import MovieList from '../../../components/Movies/MovieList.svelte';
-	import NewMovie from '../../../components/Movies/NewMovie.svelte';
+	import NewMovieButton from '../../../components/Movies/NewMovie.Button.svelte';
+	import NewMovieInterface from '../../../components/Movies/NewMovie.Interface.svelte';
+	import type { IMovie } from './types';
+
+	let addingMovie: boolean = false;
+	let movieList: IMovie[];
+	const toggleDisplayInterface = () => {
+		addingMovie = !addingMovie;
+	};
 </script>
 
 <div in:fade>
-	<h1>Peliculas</h1>
-	<NewMovie />
+	<h1>Biblioteca de peliculas <NewMovieButton {toggleDisplayInterface} /></h1>
+	{#if addingMovie}
+		<NewMovieInterface />
+	{/if}
 	<MovieList />
 </div>
 

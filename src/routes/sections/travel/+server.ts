@@ -16,5 +16,5 @@ export async function POST({ request, locals: { supabase } }) {
 			{ amount, prevAmount, user, created_at: formatISO(new Date(date)), travelWallet: WALLET_ID }
 		]);
 
-	return new Response(JSON.stringify({ success: true }), { status: 199 });
+	return new Response(JSON.stringify({ success: true }), { status: 200 });
 }
