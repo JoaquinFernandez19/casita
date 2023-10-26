@@ -4,9 +4,13 @@
 	import NewMovieButton from '../../../components/Movies/NewMovie.Button.svelte';
 	import NewMovieInterface from '../../../components/Movies/NewMovie.Interface.svelte';
 	import type { IMovie } from './types';
+	export let data;
 
-	let addingMovie: boolean = false;
 	let movieList: IMovie[];
+
+	$: movieList = data.movies || [];
+	console.log(data);
+	let addingMovie: boolean = false;
 	const toggleDisplayInterface = () => {
 		addingMovie = !addingMovie;
 	};
@@ -17,7 +21,7 @@
 	{#if addingMovie}
 		<NewMovieInterface />
 	{/if}
-	<MovieList />
+	<MovieList {movieList} />
 </div>
 
 <style>

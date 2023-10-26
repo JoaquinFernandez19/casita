@@ -1,15 +1,16 @@
 <script lang="ts">
 	import Movie from './Movie.svelte';
 	import type { IMovie } from '../../routes/sections/movies/types';
-
-	const movies: IMovie[] = [];
+	export let movieList: IMovie[];
 </script>
 
-<div>
-	{#each movies as movie}
-		<Movie {movie} />
-	{/each}
-</div>
+{#if movieList.length}
+	<div>
+		{#each movieList as movie}
+			<Movie {movie} />
+		{/each}
+	</div>
+{/if}
 
 <style>
 	div {

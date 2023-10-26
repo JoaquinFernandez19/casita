@@ -12,24 +12,33 @@ export interface Database {
       Movie: {
         Row: {
           id: number
+          img: string | null
           movie_id: string
+          name: string | null
           rating: number
           status: string | null
           user: number | null
+          year: number | null
         }
         Insert: {
           id?: number
+          img?: string | null
           movie_id: string
+          name?: string | null
           rating?: number
           status?: string | null
           user?: number | null
+          year?: number | null
         }
         Update: {
           id?: number
+          img?: string | null
           movie_id?: string
+          name?: string | null
           rating?: number
           status?: string | null
           user?: number | null
+          year?: number | null
         }
         Relationships: [
           {

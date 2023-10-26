@@ -10,7 +10,8 @@
 		"sourceMap": true,
 		"strict": true,
 		"noEmit": true,
-		"allowImportingTsExtensions": true
+		"allowImportingTsExtensions": true,
+		"types": ["unplugin-icons/types/svelte"]
 	}
 	// Path aliases are handled by https://kit.svelte.dev/docs/configuration#alias
 	//

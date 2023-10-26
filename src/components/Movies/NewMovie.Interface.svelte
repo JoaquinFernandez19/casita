@@ -3,12 +3,13 @@
 	import type { IApiMovie, MovieDB } from '../../routes/sections/movies/types';
 	import TextSearchVariant from '~icons/mdi/text-search-variant';
 	import { clientSession } from '$lib/store/session_store';
+	import { goto } from '$app/navigation';
 
 	let movieNameInput: HTMLInputElement;
 	let errorOnSearch: boolean = false;
-	let ratingInput: HTMLSelectElement;
+	let ratingInput: string;
 	let watchedChecked: boolean = false;
-	let searchResult: IApiMovie;
+	let searchResult: IApiMovie | null;
 	let searching: boolean = false;
 
 	onMount(() => {
@@ -29,15 +30,25 @@
 			searchResult = data;
 		}
 	};
+	const clearSearch = () => {
+		searchResult = null;
+		searching = false;
+		watchedChecked = false;
+		ratingInput = '0';
+		movieNameInput.value = '';
+		goto('');
+	};
 
 	const handleAddMovie = async () => {
 		if (!searchResult || !$clientSession) return;
-
 		const movieToAdd: MovieDB = {
 			movie_id: searchResult.imdbID,
 			rating: watchedChecked ? Number(ratingInput) : 0,
 			status: watchedChecked ? 'Vista' : 'Pendiente',
-			user: $clientSession.id
+			user: $clientSession.id,
+			img: searchResult.Poster,
+			name: searchResult.Title,
+			year: searchResult.Year
 		};
 		await fetch('/sections/movies', {
 			method: 'POST',
@@ -46,6 +57,7 @@
 				'Content-Type': 'application/json'
 			}
 		});
+		clearSearch();
 	};
 </script>
 
@@ -167,7 +179,7 @@
 			border-radius: 5px;
 		}
 		& #score {
-			width: 40px;
+			width: 50px;
 			color: black;
 			border-radius: 5px;
 			outline: none;

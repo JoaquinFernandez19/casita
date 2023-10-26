@@ -1,26 +1,41 @@
 <script lang="ts">
 	import type { IMovie } from '../../routes/sections/movies/types';
 
-	export let movie: IMovie;
+	export let movie: IMovie & { user: { name: string } };
 </script>
 
 <div class="container">
-	<div class="img" style={`background-image: url(${movie.image})`} />
+	<div class="img" style={`background-image: url(${movie.img})`} />
 	<div class="info">
 		<div>
-			<h1>{movie.name}</h1>
-			<p>{movie.user}</p>
+			<h1>{movie.name} <em>{movie.year}</em></h1>
+			<p>{movie.user.name}</p>
 		</div>
 	</div>
-	<span class={'status ' + movie.status.toLocaleLowerCase()}>{movie.status}</span>
+	<span class={'status ' + movie.status?.toLocaleLowerCase()}>{movie.status}</span>
 
-	<span class="rating">{movie.rating}/10</span>
+	<span class="rating"
+		>{#if movie.status != 'Pendiente'}{movie.rating}/10{/if}</span
+	>
 </div>
 
 <style>
+	h1 {
+		@media (max-width: 1000px) {
+			font-size: 24px;
+		}
+	}
+	em {
+		font-size: 20px;
+		opacity: 0.5;
+		font-style: normal;
+		@media (max-width: 1000px) {
+			font-size: 14px;
+		}
+	}
 	.container {
 		display: grid;
-		grid-template-columns: 150px 2fr 1fr;
+		grid-template-columns: 150px 3fr 1fr;
 		grid-template-rows: 1fr 1fr;
 		height: 190px;
 		column-gap: 20px;
